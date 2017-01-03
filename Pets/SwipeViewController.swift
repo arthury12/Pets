@@ -14,14 +14,19 @@ typealias ServiceResponse = (JSON, NSError?) -> Void
 class ViewController: UIViewController {
 
     @IBOutlet weak var retrieveData: UIButton!
+    @IBOutlet weak var petImage: UIImageView!
     var pet: Pet?
     var petDB = [Pet]()
+    var favoredPets = [Pet]()
+    var arrayIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //let gesture = UIPanGestureRecognizer(target: self, action: Selector("wasDragged:"))
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(self.wasDragged(gesture:)))
         getPet(location: "90069")
+        petImage.addGestureRecognizer(gesture)
+        petImage.isUserInteractionEnabled = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,6 +35,45 @@ class ViewController: UIViewController {
 
     @IBAction func button1Clicked() {
         getPet(location: "90069")
+    }
+    
+    func load_image(urlStr:String)
+    {
+        petImage.imageFromServerURL(urlString: urlStr)
+    }
+    
+    func wasDragged(gesture: UIPanGestureRecognizer){
+        let translation = gesture.translation(in: self.view)
+        let image = gesture.view!
+        
+        image.center = CGPoint(x: self.view.bounds.width/2 + translation.x, y: self.view.bounds.height/2 + translation.y - 70)
+        let xFromCenter = image.center.x - self.view.bounds.width / 2
+        let scale = min(100 / abs(xFromCenter), 1)
+        var rotation = CGAffineTransform(rotationAngle: xFromCenter / 200)
+        var stretch = rotation.scaledBy(x: scale, y: scale)
+        image.transform = stretch
+        
+        if gesture.state == UIGestureRecognizerState.ended {
+            if image.center.x < 100 {
+                //print("not chosen")
+                arrayIndex += 1
+                //print(self.arrayOfStruct[arrayIndex].largeArtistImageUrl)
+                self.load_image(urlStr: self.petDB[arrayIndex].imageURL.first!!)
+                //self.load_artistName(self.arrayOfStruct[arrayIndex].artistName!)
+            } else if image.center.x > self.view.bounds.width - 100 {
+                //print("chosen")
+                favoredPets.append(self.petDB[arrayIndex])
+                arrayIndex += 1
+                self.load_image(urlStr: self.petDB[arrayIndex].imageURL.first!!)
+                //self.load_artistName(self.arrayOfStruct[arrayIndex].artistName!)
+                print("pet stored \(self.petDB[arrayIndex-1].name!)")
+            }
+            
+            rotation = CGAffineTransform(rotationAngle: 0)
+            stretch = rotation.scaledBy(x: 1, y: 1)
+            image.transform = stretch
+            image.center = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height/2 - 70)
+        }
     }
     
     /* API Manager */
@@ -41,7 +85,6 @@ class ViewController: UIViewController {
     
     /* Endpoints */
     let petFind = "pet.find?"
-    
     
     func getPet(location: String?) {
         let currLocation = location ?? defaultLocation
@@ -176,8 +219,11 @@ class ViewController: UIViewController {
                 } catch let error as NSError {
                     print(error.localizedDescription)
                 }
+                self.load_image(urlStr: self.petDB[self.arrayIndex].imageURL.first!!)
             }
         }
         task.resume()
+        
+        petImage.reloadInputViews()
     }
 }

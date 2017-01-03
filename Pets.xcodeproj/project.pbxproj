@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8CA8ADD21E1B4B3A00AF436E /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA8ADD11E1B4B3A00AF436E /* UIImageExtension.swift */; };
 		8CF795E01DE1AAFA00F4A5DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF795DF1DE1AAFA00F4A5DC /* AppDelegate.swift */; };
 		8CF795E21DE1AAFA00F4A5DC /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF795E11DE1AAFA00F4A5DC /* SwipeViewController.swift */; };
 		8CF795E51DE1AAFA00F4A5DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CF795E31DE1AAFA00F4A5DC /* Main.storyboard */; };
@@ -95,6 +96,7 @@
 		5EF476617DCB087EA44ECED8 /* Pods-PetsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PetsUITests/Pods-PetsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7BF0B54C95692AFBDDDF6D68 /* Pods-Pets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pets.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pets/Pods-Pets.release.xcconfig"; sourceTree = "<group>"; };
 		8195EDB575DC40242207B0EB /* Pods_Pets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CA8ADD11E1B4B3A00AF436E /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		8CF795DC1DE1AAFA00F4A5DC /* Pets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF795DF1DE1AAFA00F4A5DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CF795E11DE1AAFA00F4A5DC /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8CA8ADC91E1B4B2800AF436E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8CA8ADD11E1B4B3A00AF436E /* UIImageExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		8CF795D31DE1AAF900F4A5DC = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +205,7 @@
 		8CF795DE1DE1AAFA00F4A5DC /* Pets */ = {
 			isa = PBXGroup;
 			children = (
+				8CA8ADC91E1B4B2800AF436E /* Extensions */,
 				8CF7960F1DE1ABEE00F4A5DC /* Controller */,
 				8CF7960E1DE1ABEA00F4A5DC /* View */,
 				8CF7960D1DE1ABE400F4A5DC /* Model */,
@@ -609,6 +620,7 @@
 				8CF795E21DE1AAFA00F4A5DC /* SwipeViewController.swift in Sources */,
 				8CF795E01DE1AAFA00F4A5DC /* AppDelegate.swift in Sources */,
 				8CF796461DE2D97300F4A5DC /* Pet.swift in Sources */,
+				8CA8ADD21E1B4B3A00AF436E /* UIImageExtension.swift in Sources */,
 				8CF796111DE1AC5A00F4A5DC /* RestApiManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
