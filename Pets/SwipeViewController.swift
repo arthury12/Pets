@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import CoreData
 import SwiftyJSON
 
 typealias ServiceResponse = (JSON, NSError?) -> Void
 
 class ViewController: UIViewController {
-
     @IBOutlet weak var retrieveData: UIButton!
     @IBOutlet weak var petImage: UIImageView!
     var pet: Pet?
@@ -211,6 +211,7 @@ class ViewController: UIViewController {
                                         }
                                         
                                         self.petDB.append(currPet)
+                                        self.storePet(petID: currPet.id!, pet: currPet, context: self.getContext())
                                     }
                                 }
                             }
@@ -225,5 +226,45 @@ class ViewController: UIViewController {
         task.resume()
         
         petImage.reloadInputViews()
+    }
+    
+    func storePet (petID: String, pet: Pet, context: NSManagedObjectContext) {
+        let newPet = NSEntityDescription.insertNewObject(forEntityName: petID, into: context)
+        newPet.setValue(pet.address, forKey: "address")
+        newPet.setValue(pet.age, forKey: "age")
+        newPet.setValue(pet.breed, forKey: "breed")
+        newPet.setValue(pet.description, forKey: "description")
+        newPet.setValue(pet.email, forKey: "email")
+        newPet.setValue(pet.name, forKey: "name")
+        newPet.setValue(pet.phone, forKey: "phone")
+        newPet.setValue(pet.sex, forKey: "sex")
+        newPet.setValue(pet.address, forKey: "address")
+        newPet.setValue(pet.type, forKey: "type")
+        newPet.setValue(pet.additionalOptions, forKey: "additionalOptions")
+        newPet.setValue(pet.imageURL, forKey: "imageURL")
+        
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    
+    func getContext () -> NSManagedObjectContext {
+        var persistentContainer: NSPersistentContainer = {
+            
+            let container = NSPersistentContainer(name: "PetModel.xcdatamodeld")
+            container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+                if let error = error {
+                    
+                    fatalError("Unresolved error \(error)")
+                }
+            })
+            return container
+        }()
+        
+        //let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        return persistentContainer.viewContext
     }
 }

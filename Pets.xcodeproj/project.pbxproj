@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8CA8ADD21E1B4B3A00AF436E /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA8ADD11E1B4B3A00AF436E /* UIImageExtension.swift */; };
+		8CA8ADD41E1E268A00AF436E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CA8ADD31E1E268A00AF436E /* CoreData.framework */; };
+		8CA8ADD71E1E27AE00AF436E /* PetModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CA8ADD51E1E27AE00AF436E /* PetModel.xcdatamodeld */; };
 		8CF795E01DE1AAFA00F4A5DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF795DF1DE1AAFA00F4A5DC /* AppDelegate.swift */; };
 		8CF795E21DE1AAFA00F4A5DC /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF795E11DE1AAFA00F4A5DC /* SwipeViewController.swift */; };
 		8CF795E51DE1AAFA00F4A5DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CF795E31DE1AAFA00F4A5DC /* Main.storyboard */; };
@@ -97,6 +99,8 @@
 		7BF0B54C95692AFBDDDF6D68 /* Pods-Pets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pets.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pets/Pods-Pets.release.xcconfig"; sourceTree = "<group>"; };
 		8195EDB575DC40242207B0EB /* Pods_Pets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CA8ADD11E1B4B3A00AF436E /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		8CA8ADD31E1E268A00AF436E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8CA8ADD61E1E27AE00AF436E /* PetModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PetModel.xcdatamodel; sourceTree = "<group>"; };
 		8CF795DC1DE1AAFA00F4A5DC /* Pets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF795DF1DE1AAFA00F4A5DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CF795E11DE1AAFA00F4A5DC /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CA8ADD41E1E268A00AF436E /* CoreData.framework in Frameworks */,
 				8CF796441DE1C6D700F4A5DC /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +155,7 @@
 		2B2A775158A4026F2EE968D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8CA8ADD31E1E268A00AF436E /* CoreData.framework */,
 				8195EDB575DC40242207B0EB /* Pods_Pets.framework */,
 				B69160D857BA11FDB6F47FAA /* Pods_PetsTests.framework */,
 				D9E666DC5479A83D0A714A6C /* Pods_PetsUITests.framework */,
@@ -239,6 +245,7 @@
 		8CF7960D1DE1ABE400F4A5DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8CA8ADD51E1E27AE00AF436E /* PetModel.xcdatamodeld */,
 				8CF796451DE2D97300F4A5DC /* Pet.swift */,
 			);
 			name = Model;
@@ -618,6 +625,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CF795E21DE1AAFA00F4A5DC /* SwipeViewController.swift in Sources */,
+				8CA8ADD71E1E27AE00AF436E /* PetModel.xcdatamodeld in Sources */,
 				8CF795E01DE1AAFA00F4A5DC /* AppDelegate.swift in Sources */,
 				8CF796461DE2D97300F4A5DC /* Pet.swift in Sources */,
 				8CA8ADD21E1B4B3A00AF436E /* UIImageExtension.swift in Sources */,
@@ -899,6 +907,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8CA8ADD51E1E27AE00AF436E /* PetModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8CA8ADD61E1E27AE00AF436E /* PetModel.xcdatamodel */,
+			);
+			currentVersion = 8CA8ADD61E1E27AE00AF436E /* PetModel.xcdatamodel */;
+			path = PetModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8CF795D41DE1AAF900F4A5DC /* Project object */;
 }
